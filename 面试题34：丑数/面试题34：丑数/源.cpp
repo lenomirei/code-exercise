@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 //求按从小到大的顺序的第1500个丑数
 //出现大数问题
+=======
+>>>>>>> 8714f91b64889566807ec70c53e2afe4d0054887
 
 #include<iostream>
 #include<vector>
 using namespace std;
 
 
+<<<<<<< HEAD
 
 int Min(int number1,int number2,int number3)
 {
@@ -87,6 +91,11 @@ void uglyNum2(int x)
 	{
 		cout << "第" << i << "个数：" << ugly[i] << endl;
 	}
+=======
+void uglyNum()
+{
+
+>>>>>>> 8714f91b64889566807ec70c53e2afe4d0054887
 }
 
 
@@ -94,6 +103,11 @@ void uglyNum2(int x)
 
 int main()
 {
+<<<<<<< HEAD
 	uglyNum2(1500);
 	return 0;
+=======
+
+
+>>>>>>> 8714f91b64889566807ec70c53e2afe4d0054887
 }
