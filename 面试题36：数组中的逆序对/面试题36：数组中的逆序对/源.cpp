@@ -58,13 +58,14 @@ void Count(int *a,size_t length)
 void testCount()
 {
 
-	return;
+
+	int a[4] = { 7,5,6,4 };
+	Count(a, 4);
 }
 
 
 int main()
 {
-	int a[4] = { 7,5,6,4 };
-	Count(a,4);
+	testCount();
 	return 0;
 }
