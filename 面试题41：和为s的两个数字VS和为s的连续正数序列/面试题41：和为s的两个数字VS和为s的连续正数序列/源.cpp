@@ -51,17 +51,47 @@ void fasterfunc1(int *a, size_t size, int sum)
 	}
 }
 
-//在一个数组中找到和为sum的一个序列
-void func2(int *a, size_t size,int sum)
+//和为s的连续正数序列，跟数组没关系了咯
+void SumIss(int sum)
 {
-
+	int small = 1;
+	int big = 2;
+	int middle = sum / 2;
+	while (1)
+	{
+		int s = 0;
+		for (int i = small; i <= big; ++i)
+		{
+			s += i;
+		}
+		if (s > sum && small < middle)
+		{
+			small++;
+		}
+		else if (s > sum && small >= middle)
+		{
+			break;
+		}
+		else if(s<sum)
+		{
+			big++;
+		}
+		else
+		{
+			for (int i = small; i <= big; ++i)
+			{
+				cout << i << "  ";
+			}
+			big++;
+		}
+	}
+	
 }
 
 
 
 int main()
 {
-	int a[6] = { 1,2,4,7,11,15 };
-	fasterfunc1(a, 6, 15);
+	SumIss(15);
 	return 0;
 }
