@@ -3,8 +3,7 @@ using namespace std;
 
 
 
-
-void QuickSort(int *a, size_t length)
+void QuickSort(int *a ,size_t length)
 {
 	if (length < 1)
 	{
@@ -17,13 +16,12 @@ void QuickSort(int *a, size_t length)
 	{
 		for (; begin < end; end--)
 		{
-			if (a[end] < value)
+			if(a[end]<value)
 			{
 				a[begin++] = a[end];
 				break;
 			}
 		}
-
 		for (; begin < end; begin++)
 		{
 			if (a[begin] > value)
@@ -37,7 +35,6 @@ void QuickSort(int *a, size_t length)
 	QuickSort(a, begin);
 	QuickSort(a + begin + 1, length - begin - 1);
 }
-
 
 
 int main()
