@@ -4,7 +4,7 @@ using namespace std;
 
 
 
-int Count(int n,int k)
+int Count(int n)
 {
 	//首先计算其长度
 	vector<int > v;
@@ -18,19 +18,33 @@ int Count(int n,int k)
 	int result = 0;
 	while (length--)
 	{
-		
+
 		v.push_back(n % 10);
 		n /= 10;
 	}
 	for (int i = 0; i < v.size(); ++i)
 	{
-		int tt = pow(10,i);
+		int tt = pow(10, i);
 		for (int j = i + 1; j < v.size(); ++j)
 		{
-			tt *= v[j];
+			tt *= (v[j] + 1);
 		}
-		result += tt;
-		
+		if (i != v.size() - 1)
+		{
+			result += tt;
+		}
+		else
+		{
+			if (v[i] == 1)
+			{
+				result = result + v[i - 1] * pow(10, i - 1) + 1;
+			}
+			else
+			{
+				result += tt;
+			}
+		}
+
 	}
 	return result;
 }
@@ -40,6 +54,6 @@ int Count(int n,int k)
 
 int main()
 {
-	cout << Count(9, 1) << endl;
+	cout << Count(290) << endl;
 	return 0;
 }
