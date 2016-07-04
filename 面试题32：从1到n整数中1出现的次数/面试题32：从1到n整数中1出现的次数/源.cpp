@@ -1,59 +1,43 @@
 #include<iostream>
-#include<vector>
 using namespace std;
 
 
 
-int Count(int n)
+
+
+
+int numof1(int n)
 {
-	//首先计算其长度
-	vector<int > v;
-	int length = 0;
+	int result = 0;
 	int tmp = 1;
+	int curnum = 0;
+	int lowernum = 0;
+	int highernum = 0;
 	while (n / tmp)
 	{
-		length++;
+		curnum = (n / tmp) % 10;
+		lowernum = n - (n / tmp)*tmp;
+		highernum = n / (tmp * 10);
+		switch (curnum)
+		{
+		case 0:
+			result += highernum*tmp;
+			break;
+		case 1:
+			result += highernum*tmp + lowernum + 1;
+			break;
+		default:
+			result += (highernum + 1)*tmp;
+			break;
+		}
 		tmp *= 10;
-	}
-	int result = 0;
-	while (length--)
-	{
-
-		v.push_back(n % 10);
-		n /= 10;
-	}
-	for (int i = 0; i < v.size(); ++i)
-	{
-		int tt = pow(10, i);
-		for (int j = i + 1; j < v.size(); ++j)
-		{
-			tt *= (v[j] + 1);
-		}
-		if (i != v.size() - 1)
-		{
-			result += tt;
-		}
-		else
-		{
-			if (v[i] == 1)
-			{
-				result = result + v[i - 1] * pow(10, i - 1) + 1;
-			}
-			else
-			{
-				result += tt;
-			}
-		}
-
 	}
 	return result;
 }
 
-
-
-
 int main()
 {
-	cout << Count(290) << endl;
+
+	cout << numof1(1901) << endl;
 	return 0;
 }
